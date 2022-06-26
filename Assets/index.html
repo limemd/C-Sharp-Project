@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header>
+        <div id="logo" onclick="slowScroll('#top')">
+            <span>MoldPiece</span>
+        </div>
+        <div id="about">
+            <a href="#"title="Descriere" onclick="slowScroll('#main')">Descriere</a>
+            <a href="#" onclick="slowScroll('#overview')">Produse</a>
+            <a href="#" onclick="slowScroll('#contacts')">Contacte</a>
+        </div>
+    </header>
+
+    <div id="top">
+       <h1>Autopiese</h1>
+       <h3>Cei mai buni din Moldova!</h3> 
+    </div>
+
+    <div id="main">
+        <div class="intro">
+            <h2>Produsele noastre sunt cele mai calitative! </h2>
+            <span>O selecție largă de tot ce aveti nevoie</span>
+        </div>
+        <div class="text">
+            <span>Primim piese de la cei mai buni producatori, transportate si pastrate calitativ. <br>
+                  Avem piese de schimb pentru cele mai renumite marci de masini <br>
+                  cum ar fi Mercedes, BMW, Volkswagen, Audi, Opel, si o multime de modele. <br>
+                  In vanzare puteti gasi piese pentru motor ,cutia de viteze etc. ,<br>
+                  iar daca nu gasiti ceva cu usurinta puteti comanda , comenzile se executa in cel mult o saptamana. <br>
+                  Va multumimi ca ati ales MoldPiece!!!
+ 
+            </span>
+        </div>
+    </div>
+    <div id="overview">
+        <h2>Produse</h2>
+        <h4>Calitate nu Made in China!!!</h4>
+        
+    <div class="img">
+        <img src="https://i.simpalsmedia.com/point.md/news/600x315/97c9972ad093931769de06a4f3c68181.jpg" alt="">
+        <span>Cilindri Mercedes-AMG</span>
+      </div>
+      <div class="img">
+        <img src="https://img.dbroker.com.ua/images/tile/product/0420/07/1777765_1.jpg" alt="">
+        <span>Amortizator pentru BMW 3 Series</span>
+      </div>
+      <div class="img">
+        <img src="https://s12emagst.akamaized.net/products/4406/4405943/images/res_032a69bd8ac433251805d153e9f08ed8_full.jpg" alt="">
+        <span>
+            Ulei motor BMW Twin Power Turbo Longlife-04, 5W30, 1L</span>
+      </div>
+      <div class="img">
+        <img src="https://www.pieseauto.ro/poze/discuri-frana-sport-fata-audi-a4-audi-a5-4512-t5/discuri-frana-sport-fata-audi-a4-audi-a5-4512-t5-f1793f1df27b06e8df-0-0-0-0-0.jpg" alt="">
+        <span>
+            Discuri frana sport fata Audi A4, Audi A5 - 4512/T5</span>
+      </div>
+    </div>
+
+
+    <div id="contacts">
+        <center><h5>Mesaj</h5></center>
+        <form id="form_input">
+        <label for="name">Nume <span>*</span></label><br>
+        <input type="text" placeholder="Intrdoduceti numele!" name="name" id="name"><br>
+        <label for="email">Email <span>*</span></label><br>
+        <input type="text" placeholder="Intrdoduceti email-ul !" name="email" id="email"><br>
+        <label for="message">Mesaj <span>*</span></label><br>
+        <textarea type="text" placeholder="Intrdoduceti mesajul!" name="message" id="message"></textarea> <br>
+        <div id="mess_send" class="btn">Trimite</div>
+    </form>
+    </div>
+
+    <div class="subsol">
+        <p id="sub">2020 @ Toate drepturile sunt rezervate.</p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        function slowScroll(id){
+            $('html, body').animate({
+                scrollTop: $(id).offset().top
+            },500);
+        }
+
+        $(document).on("scroll", function(){
+            if ($(window).scrollTop()=== 0)
+            $("header").remoteClass("fixed");
+            else
+            $("header").attr("class", "fixed");
+        })
+    </script>
+</body>
+</html>

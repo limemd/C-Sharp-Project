@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="Pizzaria1.AdaugaComandaGrid"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Pizzaria1"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             Height="515" Width="750"
+             >
+    <Grid >
+        <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.8}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Adauga Comanda" HorizontalAlignment="Left" Margin="10,32,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
+                <Label Content="Numele Produsului : " HorizontalAlignment="Left" Margin="10,115,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+                <Label Content="Cantitate : " HorizontalAlignment="Left" Margin="13,177,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+                <Label Content="Data Comanda :" HorizontalAlignment="Left" Margin="13,266,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+                <Label Content="Nume Furnizor :" HorizontalAlignment="Left" Margin="13,378,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+                <TextBox Grid.ColumnSpan="3" Name="tb_quantity" HorizontalAlignment="Left" Height="32" Margin="250,177,0,0" TextWrapping="Wrap" Text="" FontSize="16" Background="Azure" VerticalAlignment="Top" Width="284" PreviewTextInput="Tb_quantity_PreviewTextInput"/>
+                <ComboBox x:Name="cb_prodname" Margin="250,83,216.4,368.2" Height="64" Grid.ColumnSpan="3"/>
+                <DatePicker x:Name="datecomanda" Margin="250,266,216.4,178.2" Height="71" Grid.ColumnSpan="3"/>
+                <ComboBox x:Name="cb_furname" Grid.ColumnSpan="2" Margin="2.6,368,216.4,91.2" Height="56" Grid.Column="1"/>
+                <Button Content="Save" Grid.Column="2" HorizontalAlignment="Left" Margin="88,430,0,0" VerticalAlignment="Top" Width="129" Height="46" Click="Button_Click"/>
+
+
+            </Grid>
+        </materialDesign:TransitioningContent>
+    </Grid>
+</UserControl>

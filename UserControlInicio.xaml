@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="Pizzaria1.UserControlInicio"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Pizzaria1"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             Height="auto" Width="auto">
+    <Grid>
+        <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.8}">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+                <StackPanel>
+              
+                    <StackPanel Margin="10">
+                        <TextBlock Text="MoldPiece" FontSize="50" FontFamily="Cooper Black" Foreground="#FFC00000"/>
+                        <TextBlock Text="Magazin de piese auto din Moldova" FontSize="25" FontFamily="Champagne &amp; Limousines" FontWeight="Bold" Margin="5"/>
+                    </StackPanel>
+                    <Button FontFamily="Champagne &amp; Limousines" Content="Visit WebSite" FontSize="18" Margin="25" Click="Button_Click" />
+                </StackPanel>
+                <!--<Image Margin="10" Width="200" Height="200" Source="Assets/poate.jpg" Stretch="None"/>-->
+            </StackPanel>
+        </materialDesign:TransitioningContent>
+    </Grid>
+</UserControl>

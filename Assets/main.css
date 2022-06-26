@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Suez+One&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+body, html{
+    width: 100%;
+    height: 100%;
+}
+body{
+    background-color: #fafafa;
+    font-family: 'Trebuchet MS', Helvetica;
+}
+header{
+    width: 100%;
+    padding: 10PX 0.5% 0px 0.5%;
+    background: transparent;
+    float: left;
+    position: fixed;
+}
+header #logo{
+    color: #fff;
+    cursor: pointer;
+
+}
+header #logo span{
+    font-size: 1.7em;
+    line-height: 45px;
+    margin-left: 40px;
+    font-family: 'Suez one', serif ;
+}
+@media (min-width: 701px){
+    #logo{
+        float:left;
+        width: 30%;
+        font-size:1.1em;
+    }
+
+    #about{
+        float: right;
+        width: 67%;
+    }
+}
+@media (max-width: 700px){
+    #logo{
+        margin-top: 15px;
+        width: 100%;
+        font-size: 1.1em;
+    }
+    #about{
+        float: left;
+        width: 100%;
+    }
+}
+#about{
+    text-align: center;
+    font-size: 1em;
+    line-height: 40px;
+    margin-bottom: 10px;
+}
+#about > a {color: #fff}
+
+#about > a:hover {
+    color: #b0b0b0;
+    text-decoration: underline;
+}
+
+#about > a:not(:last-child){
+    margin-right: 7%;
+}
+
+.fixed {
+    z-index: 5000;
+    background-color: #fff;
+    border-bottom: 1px solid silver;
+}
+header.fixed #logo {
+    color: #343434;
+}
+.fixed #about a{color: #343434;}
+.fixed #about a:hover { color: #7c7c7c}
+
+#top{
+    width: 100%;
+    height: 850px;
+    background-image: url(https://lh3.googleusercontent.com/jBv9eLhC3YKGlA6J2VSYgsJgWUsjF4CgouA96xjfYHaKxJesyGMghMTMCLRl82aTsqNRBESV=w1080-h608-p-no-v0);
+    background-blend-mode: multiply;
+    background-color: #2e3a44;
+    background-size: cover;
+    text-align: center;
+    color: #fff;   
+}
+
+@media (min-width: 551px){
+    #top{
+    font-size: 3em;
+    }
+}
+@media (max-width: 550px){
+    #top{
+    font-size: 2em;
+    }
+}
+
+#top h1{
+    padding-top: 20%;
+}
+
+#top h3 {
+    color: #ccc;
+}
+
+#main  {
+    float: left;
+    background-color: #f6f6f6;
+    border-top: 2px solid silver;
+    color: #484848;
+    font-size: 1.3em; 
+}
+@media (min-width: 1301px){
+    #main{
+        padding: 100px 20%;
+        width: 60%;
+    }
+}
+@media (max-width: 1300px){
+    #main{
+        padding: 100px 10%;
+        width: 80%;
+    }
+}
+@media (max-width: 760px){
+    #main div{
+        width: 98%!important;
+        margin-bottom: 20px;
+    }
+}
+
+
+#main div {
+    width: 48%;
+    margin-right: 2%;
+    float: left;
+}
+
+#main h2 { font-size: 3em;}
+#main span { color: #a0a0a0;}
+
+#overview{
+    float: left;
+    background-image: url(https://lh3.googleusercontent.com/proxy/Ho23-w2aHvNLm-eBdprZuFBo0IPLMVgtMzxgfrEzXC8IgoEexOAgJfUSNZDgYjOYHVvS3PvqPyzYUr2TIca3r1-vtDeGSj_5S8apELxlCpiNVl9QK5zj09epjIqPJPwzJNgaIch0tFrywLnIP0gY27MkEWmM4xNm7ywIWQTdgRDOyPpyfx_vP9MKcixkGUbsB2hN0iHCskKBfMHgkBIaCGEpIADZQrW5rekNMQULrViEB92TgsnyrTtbQxOcs7Mco69yr0tktEqKVmdrMPSpdjQ9C6_TReMJ_erzEgJZim8Y82PfYAl1nAfS24dlESpfiwUSTHZQTr1OA4o9OAFmw3ZKwbC4ekDV2ZN82FX3);
+
+    background-blend-mode: multiply;
+    background-color: #2e3a44;
+    background-size: cover;
+    background-attachment: fixed;
+
+    padding: 100px 0;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+}
+#overview h2 { font-size: 4em;}
+#overview h4 { color: #ccc; font-size: 1.5em;}
+
+#overview .img{
+    float: left;
+    width: 30%;
+    margin-right: 5px;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+#overview .img:nth-child(odd){
+    margin-left: 18%;
+}
+
+#overview img{
+    background: #fafafa;
+    padding: 5px;
+    border: 2px solid silver;
+    float: left;
+    width: 100%;
+    max-width: 400px;
+    height: 350px;
+    
+}
+
+#overview span{
+    float: left;
+    width: 100%;
+    font-size: 2em;
+    margin-top: 10px;
+}
+
+@media (max-width: 1140px){
+    #overview .img{
+        width: 80%!important;
+        margin-right: 0!important;
+        margin-left: 10%!important;
+    }
+}
+
+#contacts {
+    width: 100%;
+    float: left;
+    padding-bottom: 40px;
+    padding-top: 70px;
+    border-top: 4px solid #ccc ;
+    background: #f4f4f4; 
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Roboto Slab', serif;
+    font-weight: lighter;
+}
+
+#contacts h5 {font-size: 3em; color:#4f4f4f}
+
+#form_input{
+    margin-top: 15px;
+    width: 35%;
+    margin-left: 38%;
+    font-size: 1.1em;
+}
+
+#form_input label{
+    color: #505050;
+    cursor: pointer;
+    font-size: 1.4em;
+    font-family: 'Roboto Slab', serif;
+}
+
+#form_input label >span {
+    color: #e87e7e;
+}
+
+#form_input input,#form_input textarea{
+    margin-bottom: 10px;
+    width: 70%;
+    padding: 10px 2%;
+    border-radius: 7%;
+    border: 2px solid silver;
+    font-size: 0.9em;
+    color: #4a4a4a;
+}
+
+#form_input input:focus, #form_input textarea:focus{
+    border-color: black;
+}
+
+.btn   {
+    float: left;
+    border-radius: 5px;
+    padding: 5px 9px;
+    font-size: 1.2em;
+    background-color: burlywood;
+    text-shadow: #454545 0 0 2px;
+    cursor: pointer;
+    color: white;
+    font-family: 'Roboto Slab',serif;
+}
+
+.btn:hover{
+    background-color:brown ;
+}
+
+.subsol{
+    background-color: #333;  
+}

@@ -1,0 +1,63 @@
+﻿<Window x:Class="Pizzaria1.Modificare_Produs"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pizzaria1"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+         Background="Transparent"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        Title="" Height="450" Width="800">
+    <Border CornerRadius="52" BorderThickness="10" BorderBrush="Gray">
+
+
+        <Border CornerRadius="35" BorderThickness="20">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#E2EEF1" Offset="0.0"></GradientStop>
+                    <GradientStop Color="#BECBCC" Offset="0.5"></GradientStop>
+                    <GradientStop Color="#3D4849" Offset="1.0"></GradientStop>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Grid MouseDown="Grid_MouseDown">
+                <Grid.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#E2EEF1" Offset="0.0"></GradientStop>
+                        <GradientStop Color="#BECBCC" Offset="0.5"></GradientStop>
+                        <GradientStop Color="#3D4849" Offset="1.0"></GradientStop>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.8}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Modifica" HorizontalAlignment="Left" Margin="10,32,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+                        <Label Content="Nume Produs" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+                        <Label Content="Categorie" HorizontalAlignment="Left" Margin="10,153,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+                        <Label Content="Pret" HorizontalAlignment="Left" Margin="10,204,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+                        <Label Content="Depozit" HorizontalAlignment="Left" Margin="10,256,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+                        <TextBox x:Name="tb_nume" Grid.ColumnSpan="2" HorizontalAlignment="Left"  Height="32" Margin="166,101,0,0" TextWrapping="Wrap" Background="Azure" VerticalAlignment="Top" Width="242" FontSize="14" FontFamily="Segoe UI Semibold"/>
+                        <TextBox x:Name="tb_pret" Grid.ColumnSpan="2" HorizontalAlignment="Left"  Height="32" Margin="166,204,0,0" TextWrapping="Wrap" Background="Azure" VerticalAlignment="Top" Width="242" FontSize="14" FontFamily="Segoe UI Semibold"/>
+                        <ComboBox x:Name="cb_categorie" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="166,157,0,0" VerticalAlignment="Top" Width="242" >
+
+                        </ComboBox>
+                        <ComboBox x:Name="cb_depozit" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="166,260,0,0" VerticalAlignment="Top" Width="242" >
+                            <ComboBoxItem>da</ComboBoxItem>
+                            <ComboBoxItem>nu</ComboBoxItem>
+                        </ComboBox>
+                        
+                        <Button Content="Save Changes" Grid.Column="2" HorizontalAlignment="Left" Margin="70,323,0,0" VerticalAlignment="Top" Width="125" Click="Button_Click"/>
+                        <Button Content="X" Background="Red" BorderThickness="0" Grid.Column="2" HorizontalAlignment="Left" Margin="162.2,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+                    </Grid>
+                </materialDesign:TransitioningContent>
+
+            </Grid>
+        </Border>
+    </Border>
+</Window>

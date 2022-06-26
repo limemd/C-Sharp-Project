@@ -1,0 +1,570 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AutopieseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categorie">
+          <Key>
+            <PropertyRef Name="cod_categorie" />
+          </Key>
+          <Property Name="cod_categorie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="denumire" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Comanda">
+          <Key>
+            <PropertyRef Name="cod_comanda" />
+          </Key>
+          <Property Name="cod_produs" Type="int" Nullable="false" />
+          <Property Name="cod_furnizor" Type="int" Nullable="false" />
+          <Property Name="data_venire" Type="smalldatetime" Nullable="false" />
+          <Property Name="cantitate" Type="int" Nullable="false" />
+          <Property Name="cod_comanda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Furnizori">
+          <Key>
+            <PropertyRef Name="cod_furnizor" />
+          </Key>
+          <Property Name="cod_furnizor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nume" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="adresa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="cod_fiscal" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Produse">
+          <Key>
+            <PropertyRef Name="cod_produs" />
+          </Key>
+          <Property Name="cod_produs" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nume" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="cod_categorie" Type="int" Nullable="false" />
+          <Property Name="pret" Type="real" Nullable="false" />
+          <Property Name="depozit" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Autopiese.dbo.comanda_view' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="comanda_view">
+          <Key>
+            <PropertyRef Name="cod comanda" />
+            <PropertyRef Name="nume" />
+            <PropertyRef Name="cantitate" />
+            <PropertyRef Name="data_venire" />
+            <PropertyRef Name="nume furnizor" />
+          </Key>
+          <Property Name="cod comanda" Type="int" Nullable="false" />
+          <Property Name="nume" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="cantitate" Type="int" Nullable="false" />
+          <Property Name="data_venire" Type="smalldatetime" Nullable="false" />
+          <Property Name="nume furnizor" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Autopiese.dbo.furnizor_view' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="furnizor_view">
+          <Key>
+            <PropertyRef Name="Cod Furnizor" />
+            <PropertyRef Name="Nume" />
+            <PropertyRef Name="Cod Fiscal" />
+            <PropertyRef Name="Adresa" />
+          </Key>
+          <Property Name="Cod Furnizor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nume" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cod Fiscal" Type="int" Nullable="false" />
+          <Property Name="Adresa" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Autopiese.dbo.produse_view' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="produse_view">
+          <Key>
+            <PropertyRef Name="cod produs" />
+            <PropertyRef Name="nume" />
+            <PropertyRef Name="pret" />
+            <PropertyRef Name="depozit" />
+            <PropertyRef Name="categorie" />
+          </Key>
+          <Property Name="cod produs" Type="int" Nullable="false" />
+          <Property Name="nume" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="pret" Type="real" Nullable="false" />
+          <Property Name="depozit" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="categorie" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Autopiese.dbo.vandut_view' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vandut_view">
+          <Key>
+            <PropertyRef Name="cod_comanda" />
+            <PropertyRef Name="nume" />
+            <PropertyRef Name="cantitate" />
+            <PropertyRef Name="data_venire" />
+          </Key>
+          <Property Name="cod_comanda" Type="int" Nullable="false" />
+          <Property Name="nume" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="cantitate" Type="int" Nullable="false" />
+          <Property Name="data_venire" Type="smalldatetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Comanda_Furnizori">
+          <End Role="Furnizori" Type="Self.Furnizori" Multiplicity="1" />
+          <End Role="Comanda" Type="Self.Comanda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Furnizori">
+              <PropertyRef Name="cod_furnizor" />
+            </Principal>
+            <Dependent Role="Comanda">
+              <PropertyRef Name="cod_furnizor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comanda_Produse">
+          <End Role="Produse" Type="Self.Produse" Multiplicity="1" />
+          <End Role="Comanda" Type="Self.Comanda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produse">
+              <PropertyRef Name="cod_produs" />
+            </Principal>
+            <Dependent Role="Comanda">
+              <PropertyRef Name="cod_produs" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Produse_Categorie">
+          <End Role="Categorie" Type="Self.Categorie" Multiplicity="1" />
+          <End Role="Produse" Type="Self.Produse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorie">
+              <PropertyRef Name="cod_categorie" />
+            </Principal>
+            <Dependent Role="Produse">
+              <PropertyRef Name="cod_categorie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="adauga_comanda" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cod_produs" Type="int" Mode="In" />
+          <Parameter Name="cantitate" Type="int" Mode="In" />
+          <Parameter Name="data" Type="smalldatetime" Mode="In" />
+          <Parameter Name="cod_furnizor" Type="int" Mode="In" />
+          <Parameter Name="cod_comanda" Type="int" Mode="In" />
+        </Function>
+        <Function Name="edit_produse" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cod_produs" Type="int" Mode="In" />
+          <Parameter Name="nume" Type="nvarchar" Mode="In" />
+          <Parameter Name="pret" Type="real" Mode="In" />
+          <Parameter Name="cod_categorie" Type="int" Mode="In" />
+          <Parameter Name="depozit" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="pretMediu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="category" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sortaredata_vandute" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="data1" Type="smalldatetime" Mode="In" />
+          <Parameter Name="data2" Type="smalldatetime" Mode="In" />
+        </Function>
+        <EntityContainer Name="AutopieseModelStoreContainer">
+          <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comanda" EntityType="Self.Comanda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Furnizori" EntityType="Self.Furnizori" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Produse" EntityType="Self.Produse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="comanda_view" EntityType="Self.comanda_view" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [comanda_view].[cod comanda] AS [cod comanda], 
+    [comanda_view].[nume] AS [nume], 
+    [comanda_view].[cantitate] AS [cantitate], 
+    [comanda_view].[data_venire] AS [data_venire], 
+    [comanda_view].[nume furnizor] AS [nume furnizor]
+    FROM [dbo].[comanda_view] AS [comanda_view]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="furnizor_view" EntityType="Self.furnizor_view" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [furnizor_view].[Cod Furnizor] AS [Cod Furnizor], 
+    [furnizor_view].[Nume] AS [Nume], 
+    [furnizor_view].[Cod Fiscal] AS [Cod Fiscal], 
+    [furnizor_view].[Adresa] AS [Adresa]
+    FROM [dbo].[furnizor_view] AS [furnizor_view]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="produse_view" EntityType="Self.produse_view" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [produse_view].[cod produs] AS [cod produs], 
+    [produse_view].[nume] AS [nume], 
+    [produse_view].[pret] AS [pret], 
+    [produse_view].[depozit] AS [depozit], 
+    [produse_view].[categorie] AS [categorie]
+    FROM [dbo].[produse_view] AS [produse_view]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vandut_view" EntityType="Self.vandut_view" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vandut_view].[cod_comanda] AS [cod_comanda], 
+    [vandut_view].[nume] AS [nume], 
+    [vandut_view].[cantitate] AS [cantitate], 
+    [vandut_view].[data_venire] AS [data_venire]
+    FROM [dbo].[vandut_view] AS [vandut_view]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Comanda_Furnizori" Association="Self.FK_Comanda_Furnizori">
+            <End Role="Furnizori" EntitySet="Furnizori" />
+            <End Role="Comanda" EntitySet="Comanda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comanda_Produse" Association="Self.FK_Comanda_Produse">
+            <End Role="Produse" EntitySet="Produse" />
+            <End Role="Comanda" EntitySet="Comanda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Produse_Categorie" Association="Self.FK_Produse_Categorie">
+            <End Role="Categorie" EntitySet="Categorie" />
+            <End Role="Produse" EntitySet="Produse" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AutopieseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Categorie">
+          <Key>
+            <PropertyRef Name="cod_categorie" />
+          </Key>
+          <Property Name="cod_categorie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="denumire" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Produses" Relationship="Self.FK_Produse_Categorie" FromRole="Categorie" ToRole="Produse" />
+        </EntityType>
+        <EntityType Name="Comanda">
+          <Key>
+            <PropertyRef Name="cod_comanda" />
+          </Key>
+          <Property Name="cod_produs" Type="Int32" Nullable="false" />
+          <Property Name="cod_furnizor" Type="Int32" Nullable="false" />
+          <Property Name="data_venire" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="cantitate" Type="Int32" Nullable="false" />
+          <Property Name="cod_comanda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Furnizori" Relationship="Self.FK_Comanda_Furnizori" FromRole="Comanda" ToRole="Furnizori" />
+          <NavigationProperty Name="Produse" Relationship="Self.FK_Comanda_Produse" FromRole="Comanda" ToRole="Produse" />
+        </EntityType>
+        <EntityType Name="Furnizori">
+          <Key>
+            <PropertyRef Name="cod_furnizor" />
+          </Key>
+          <Property Name="cod_furnizor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="adresa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="cod_fiscal" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Comandas" Relationship="Self.FK_Comanda_Furnizori" FromRole="Furnizori" ToRole="Comanda" />
+        </EntityType>
+        <EntityType Name="Produse">
+          <Key>
+            <PropertyRef Name="cod_produs" />
+          </Key>
+          <Property Name="cod_produs" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="cod_categorie" Type="Int32" Nullable="false" />
+          <Property Name="pret" Type="Single" Nullable="false" />
+          <Property Name="depozit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Categorie" Relationship="Self.FK_Produse_Categorie" FromRole="Produse" ToRole="Categorie" />
+          <NavigationProperty Name="Comandas" Relationship="Self.FK_Comanda_Produse" FromRole="Produse" ToRole="Comanda" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Produse_Categorie">
+          <End Role="Categorie" Type="Self.Categorie" Multiplicity="1" />
+          <End Role="Produse" Type="Self.Produse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorie">
+              <PropertyRef Name="cod_categorie" />
+            </Principal>
+            <Dependent Role="Produse">
+              <PropertyRef Name="cod_categorie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comanda_Furnizori">
+          <End Role="Furnizori" Type="Self.Furnizori" Multiplicity="1" />
+          <End Role="Comanda" Type="Self.Comanda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Furnizori">
+              <PropertyRef Name="cod_furnizor" />
+            </Principal>
+            <Dependent Role="Comanda">
+              <PropertyRef Name="cod_furnizor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comanda_Produse">
+          <End Role="Produse" Type="Self.Produse" Multiplicity="1" />
+          <End Role="Comanda" Type="Self.Comanda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produse">
+              <PropertyRef Name="cod_produs" />
+            </Principal>
+            <Dependent Role="Comanda">
+              <PropertyRef Name="cod_produs" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AutopieseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="Self.Categorie" />
+          <EntitySet Name="Comandas" EntityType="Self.Comanda" />
+          <EntitySet Name="Furnizoris" EntityType="Self.Furnizori" />
+          <EntitySet Name="Produses" EntityType="Self.Produse" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <AssociationSet Name="FK_Produse_Categorie" Association="Self.FK_Produse_Categorie">
+            <End Role="Categorie" EntitySet="Categories" />
+            <End Role="Produse" EntitySet="Produses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comanda_Furnizori" Association="Self.FK_Comanda_Furnizori">
+            <End Role="Furnizori" EntitySet="Furnizoris" />
+            <End Role="Comanda" EntitySet="Comandas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comanda_Produse" Association="Self.FK_Comanda_Produse">
+            <End Role="Produse" EntitySet="Produses" />
+            <End Role="Comanda" EntitySet="Comandas" />
+          </AssociationSet>
+          <EntitySet Name="produse_view" EntityType="AutopieseModel.produse_view" />
+          <FunctionImport Name="edit_produse">
+            <Parameter Name="cod_produs" Mode="In" Type="Int32" />
+            <Parameter Name="nume" Mode="In" Type="String" />
+            <Parameter Name="pret" Mode="In" Type="Single" />
+            <Parameter Name="cod_categorie" Mode="In" Type="Int32" />
+            <Parameter Name="depozit" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="comanda_view" EntityType="AutopieseModel.comanda_view" />
+          <FunctionImport Name="adauga_comanda">
+            <Parameter Name="cod_produs" Mode="In" Type="Int32" />
+            <Parameter Name="cantitate" Mode="In" Type="Int32" />
+            <Parameter Name="data" Mode="In" Type="DateTime" />
+            <Parameter Name="cod_furnizor" Mode="In" Type="Int32" />
+            <Parameter Name="cod_comanda" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="furnizor_view" EntityType="AutopieseModel.furnizor_view" />
+          <EntitySet Name="vandut_view" EntityType="AutopieseModel.vandut_view" />
+          <FunctionImport Name="sortaredata_vandute" ReturnType="Collection(AutopieseModel.sortaredata_vandute_Result)">
+            <Parameter Name="data1" Mode="In" Type="DateTime" />
+            <Parameter Name="data2" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="pretMediu" ReturnType="Collection(AutopieseModel.pretMediu_Result)">
+          <Parameter Name="category" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="produse_view">
+          <Key>
+            <PropertyRef Name="cod_produs" />
+            <PropertyRef Name="nume" />
+            <PropertyRef Name="pret" />
+            <PropertyRef Name="depozit" />
+            <PropertyRef Name="categorie" />
+          </Key>
+          <Property Name="cod_produs" Type="Int32" Nullable="false" />
+          <Property Name="nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pret" Type="Single" Nullable="false" />
+          <Property Name="depozit" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="categorie" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="comanda_view">
+          <Key>
+            <PropertyRef Name="cod_comanda" />
+            <PropertyRef Name="nume" />
+            <PropertyRef Name="cantitate" />
+            <PropertyRef Name="data_venire" />
+            <PropertyRef Name="nume_furnizor" />
+          </Key>
+          <Property Name="cod_comanda" Type="Int32" Nullable="false" />
+          <Property Name="nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cantitate" Type="Int32" Nullable="false" />
+          <Property Name="data_venire" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="nume_furnizor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="furnizor_view">
+          <Key>
+            <PropertyRef Name="Cod_Furnizor" />
+            <PropertyRef Name="Nume" />
+            <PropertyRef Name="Cod_Fiscal" />
+            <PropertyRef Name="Adresa" />
+          </Key>
+          <Property Name="Cod_Furnizor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Fiscal" Type="Int32" Nullable="false" />
+          <Property Name="Adresa" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vandut_view">
+          <Key>
+            <PropertyRef Name="cod_comanda" />
+            <PropertyRef Name="nume" />
+            <PropertyRef Name="cantitate" />
+            <PropertyRef Name="data_venire" />
+          </Key>
+          <Property Name="cod_comanda" Type="Int32" Nullable="false" />
+          <Property Name="nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cantitate" Type="Int32" Nullable="false" />
+          <Property Name="data_venire" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <ComplexType Name="sortaredata_vandute_Result">
+          <Property Type="Int32" Name="cod_comanda" Nullable="false" />
+          <Property Type="String" Name="nume" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="cantitate" Nullable="false" />
+          <Property Type="DateTime" Name="data_venire" Nullable="false" Precision="16" />
+        </ComplexType>
+        <ComplexType Name="pretMediu_Result">
+          <Property Type="Int32" Name="cod_produs" Nullable="false" />
+          <Property Type="String" Name="nume" Nullable="false" MaxLength="50" />
+          <Property Type="Single" Name="pret" Nullable="false" />
+          <Property Type="String" Name="depozit" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="categorie" Nullable="false" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AutopieseModelStoreContainer" CdmEntityContainer="AutopieseEntities">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="AutopieseModel.Categorie">
+              <MappingFragment StoreEntitySet="Categorie">
+                <ScalarProperty Name="cod_categorie" ColumnName="cod_categorie" />
+                <ScalarProperty Name="denumire" ColumnName="denumire" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comandas">
+            <EntityTypeMapping TypeName="AutopieseModel.Comanda">
+              <MappingFragment StoreEntitySet="Comanda">
+                <ScalarProperty Name="cod_produs" ColumnName="cod_produs" />
+                <ScalarProperty Name="cod_furnizor" ColumnName="cod_furnizor" />
+                <ScalarProperty Name="data_venire" ColumnName="data_venire" />
+                <ScalarProperty Name="cantitate" ColumnName="cantitate" />
+                <ScalarProperty Name="cod_comanda" ColumnName="cod_comanda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Furnizoris">
+            <EntityTypeMapping TypeName="AutopieseModel.Furnizori">
+              <MappingFragment StoreEntitySet="Furnizori">
+                <ScalarProperty Name="cod_furnizor" ColumnName="cod_furnizor" />
+                <ScalarProperty Name="nume" ColumnName="nume" />
+                <ScalarProperty Name="adresa" ColumnName="adresa" />
+                <ScalarProperty Name="cod_fiscal" ColumnName="cod_fiscal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Produses">
+            <EntityTypeMapping TypeName="AutopieseModel.Produse">
+              <MappingFragment StoreEntitySet="Produse">
+                <ScalarProperty Name="cod_produs" ColumnName="cod_produs" />
+                <ScalarProperty Name="nume" ColumnName="nume" />
+                <ScalarProperty Name="cod_categorie" ColumnName="cod_categorie" />
+                <ScalarProperty Name="pret" ColumnName="pret" />
+                <ScalarProperty Name="depozit" ColumnName="depozit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="AutopieseModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="produse_view">
+            <EntityTypeMapping TypeName="AutopieseModel.produse_view">
+              <MappingFragment StoreEntitySet="produse_view">
+                <ScalarProperty Name="categorie" ColumnName="categorie" />
+                <ScalarProperty Name="depozit" ColumnName="depozit" />
+                <ScalarProperty Name="pret" ColumnName="pret" />
+                <ScalarProperty Name="nume" ColumnName="nume" />
+                <ScalarProperty Name="cod_produs" ColumnName="cod produs" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="edit_produse" FunctionName="AutopieseModel.Store.edit_produse" />
+          <EntitySetMapping Name="comanda_view">
+            <EntityTypeMapping TypeName="AutopieseModel.comanda_view">
+              <MappingFragment StoreEntitySet="comanda_view">
+                <ScalarProperty Name="nume_furnizor" ColumnName="nume furnizor" />
+                <ScalarProperty Name="data_venire" ColumnName="data_venire" />
+                <ScalarProperty Name="cantitate" ColumnName="cantitate" />
+                <ScalarProperty Name="nume" ColumnName="nume" />
+                <ScalarProperty Name="cod_comanda" ColumnName="cod comanda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="adauga_comanda" FunctionName="AutopieseModel.Store.adauga_comanda" />
+          <EntitySetMapping Name="furnizor_view">
+            <EntityTypeMapping TypeName="AutopieseModel.furnizor_view">
+              <MappingFragment StoreEntitySet="furnizor_view">
+                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+                <ScalarProperty Name="Cod_Fiscal" ColumnName="Cod Fiscal" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="Cod_Furnizor" ColumnName="Cod Furnizor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vandut_view">
+            <EntityTypeMapping TypeName="AutopieseModel.vandut_view">
+              <MappingFragment StoreEntitySet="vandut_view">
+                <ScalarProperty Name="data_venire" ColumnName="data_venire" />
+                <ScalarProperty Name="cantitate" ColumnName="cantitate" />
+                <ScalarProperty Name="nume" ColumnName="nume" />
+                <ScalarProperty Name="cod_comanda" ColumnName="cod_comanda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sortaredata_vandute" FunctionName="AutopieseModel.Store.sortaredata_vandute">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AutopieseModel.sortaredata_vandute_Result">
+                <ScalarProperty Name="cod_comanda" ColumnName="cod_comanda" />
+                <ScalarProperty Name="nume" ColumnName="nume" />
+                <ScalarProperty Name="cantitate" ColumnName="cantitate" />
+                <ScalarProperty Name="data_venire" ColumnName="data_venire" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pretMediu" FunctionName="AutopieseModel.Store.pretMediu">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AutopieseModel.pretMediu_Result">
+                <ScalarProperty Name="cod_produs" ColumnName="cod produs" />
+                <ScalarProperty Name="nume" ColumnName="nume" />
+                <ScalarProperty Name="pret" ColumnName="pret" />
+                <ScalarProperty Name="depozit" ColumnName="depozit" />
+                <ScalarProperty Name="categorie" ColumnName="categorie" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F2571E19-BB3A-46FA-B1A1-15ECD9392887}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Pizzaria1</RootNamespace>
+    <AssemblyName>Pizzaria1</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.2.3.1244, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.2.3\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=3.1.0.1244, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.3.1.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AdaugaComandaGrid.xaml.cs">
+      <DependentUpon>AdaugaComandaGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdaugaFurnizor.xaml.cs">
+      <DependentUpon>AdaugaFurnizor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdaugaProduseGrid.xaml.cs">
+      <DependentUpon>AdaugaProduseGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AfisareComandaGrid.xaml.cs">
+      <DependentUpon>AfisareComandaGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AfisareFurnizor.xaml.cs">
+      <DependentUpon>AfisareFurnizor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AfisareVandut.xaml.cs">
+      <DependentUpon>AfisareVandut.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AutoPieseModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutoPieseModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AutoPieseModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutoPieseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AutoPieseModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutoPieseModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Categorie.cs">
+      <DependentUpon>AutoPieseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Comanda.cs">
+      <DependentUpon>AutoPieseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Comanda.xaml.cs">
+      <DependentUpon>Comanda.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="comanda_view.cs">
+      <DependentUpon>AutoPieseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Custom_Furnizor.cs" />
+    <Compile Include="Furnizori.cs">
+      <DependentUpon>AutoPieseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="furnizor_view.cs">
+      <DependentUpon>AutoPieseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModificareComanda.xaml.cs">
+      <DependentUpon>ModificareComanda.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modificare_Produs.xaml.cs">
+      <DependentUpon>Modificare_Produs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pretMediu_Result.cs">
+      <DependentUpon>AutoPieseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Produse.cs">
+      <DependentUpon>AutoPieseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="produse_view.cs">
+      <DependentUpon>AutoPieseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShowProduseGrid.xaml.cs">
+      <DependentUpon>ShowProduseGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="sortaredata_vandute_Result.cs">
+      <DependentUpon>AutoPieseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>AutoPieseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlEscolha.xaml.cs">
+      <DependentUpon>UserControlEscolha.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlFurnizor.xaml.cs">
+      <DependentUpon>UserControlFurnizor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlInicio.xaml.cs">
+      <DependentUpon>UserControlInicio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlVandut.xaml.cs">
+      <DependentUpon>UserControlVandut.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="vandut_view.cs">
+      <DependentUpon>AutoPieseModel.tt</DependentUpon>
+    </Compile>
+    <Page Include="AdaugaComandaGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdaugaFurnizor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdaugaProduseGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AfisareComandaGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AfisareFurnizor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AfisareVandut.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Comanda.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="ModificareComanda.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modificare_Produs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShowProduseGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlEscolha.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlFurnizor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlInicio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlVandut.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="AutoPieseModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AutoPieseModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="AutoPieseModel.edmx.diagram">
+      <DependentUpon>AutoPieseModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\autopiese.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\add.png" />
+    <Resource Include="Assets\modify.png" />
+    <Resource Include="Assets\view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\delivery.png" />
+    <Resource Include="Assets\emptying.png" />
+    <Resource Include="Assets\packing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\provider.png" />
+    <Resource Include="Assets\provider2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\file.png" />
+    <Resource Include="Assets\sold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\mijloc.png" />
+    <Resource Include="Assets\backlol.jpg" />
+    <Content Include="Assets\index.html" />
+    <Resource Include="Assets\logomain.jpg" />
+    <Content Include="Assets\main.css" />
+    <Resource Include="Assets\mudak.jpg" />
+    <Resource Include="Assets\poate.jpg" />
+    <Content Include="AutoPieseModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AutoPieseModel.edmx</DependentUpon>
+      <LastGenOutput>AutoPieseModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="AutoPieseModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AutoPieseModel.edmx</DependentUpon>
+      <LastGenOutput>AutoPieseModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\MaterialDesignThemes.3.1.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.1.0\build\MaterialDesignThemes.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.3.1.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.3.1.0\build\MaterialDesignThemes.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+</Project>
